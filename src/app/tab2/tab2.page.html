@@ -13,5 +13,14 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Estudiantes activos</ion-label>
+    </ion-list-header>
+    <div *ngFor="let student of students; index as i">
+      <ion-item *ngIf="student.active">
+        <ion-label>{{student.name}}</ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
 </ion-content>
