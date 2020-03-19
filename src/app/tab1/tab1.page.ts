@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Student } from '../models/student';
+import { StudentService } from '../services/student.service';
 
 @Component({
   selector: 'app-tab1',
@@ -6,7 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  students: Student[] = [];
 
-  constructor() {}
+  constructor(private studentService: StudentService) {
+    this.students = this.studentService.getStudents();
+  }
 
 }
