@@ -12,6 +12,11 @@ export class Tab1Page {
 
   constructor(private studentService: StudentService) {
     this.students = this.studentService.getStudents();
+    console.log(this.students);
+  }
+
+  changeStatus(pos: number): void {
+    this.studentService.changeStatus(pos);
   }
 
 }
