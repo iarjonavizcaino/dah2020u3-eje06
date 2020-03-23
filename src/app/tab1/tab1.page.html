@@ -1,22 +1,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Todos los estudiantes
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
+<ion-content [fullscreen]="true" class="ion-padding">
+  
   <ion-list>
-    <ion-list-header>
-      <ion-label>Todos los estudiantes</ion-label>
-    </ion-list-header>
     <div *ngFor="let student of students; index as i">
       <ion-item-sliding (ionSwipe)="changeStatus(i)">
         <ion-item>
@@ -36,5 +28,15 @@
       
     </div>
   </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="success" (click)="newStudent()">
+        <ion-icon name="add-circle-sharp"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 
 </ion-content>

@@ -34,4 +34,8 @@ export class StudentService {
   getStudents(): Student[] {
     return this.students;
   }
+
+  newStudent(student: Student): void {
+    this.students.push(student);
+  }
 }
