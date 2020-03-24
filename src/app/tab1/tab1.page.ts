@@ -10,9 +10,10 @@ import { Router } from '@angular/router';
 })
 export class Tab1Page {
   students: Student[] = [];
+  search: string;
 
   constructor(private studentService: StudentService, private router: Router) {
-    this.students = this.studentService.getStudents();
+    this.clearSearch();
   }
 
   changeStatus(pos: number) {
@@ -21,6 +22,21 @@ export class Tab1Page {
 
   newStudent(): void {
     this.router.navigate(['/new-student']);
+  }
+
+  private clearSearch(): void {
+    this.students = this.studentService.getStudents();
+  }
+
+  filter(): void {
+    this.clearSearch();
+
+    if (this.search && this.search.trim()) {
+      this.students = this.students.filter( (student) => {
+        return ((student.name.toLocaleLowerCase().indexOf(this.search.toLocaleLowerCase()) > -1)
+        || (student.controlnumber.toLocaleLowerCase().indexOf(this.search.toLocaleLowerCase()) > -1));
+      });
+    }
   }
 
 }
