@@ -38,4 +38,8 @@ export class StudentService {
   newStudent(student: Student): void {
     this.students.push(student);
   }
+
+  deleteStudent(position: number): void {
+    this.students.splice(position, 1);
+  }
 }
