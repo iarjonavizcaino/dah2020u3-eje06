@@ -38,6 +38,7 @@ export class Tab1Page {
         text: 'Si',
         handler: () => {
           this.studentService.deleteStudent(pos);
+          this.filter();
         }
       }]
     });
